@@ -1,5 +1,5 @@
 import { uiNotFeed, uiCard, uiLoading } from './ui/index.js'
-import { getFeed, addFeed, imageToBase64 } from './utils/index.js'
+import { getFeed, addFeed, imageToBase64, networkStatus } from './utils/index.js'
 
 const container = document.querySelector('#container')
 const modal = document.querySelector('#modal')
@@ -55,6 +55,7 @@ function uiModal(imageBlob) {
   const publishButton = document.querySelector('#publish-button')
   cancelButton.addEventListener('click', () => modal.close())
   publishButton.addEventListener('click', () => publishImage({ image, input }, { cancelButton, publishButton }))
+  networkStatus(publishButton)
 }
 
 async function publishImage(publishData, buttonsRef) {
