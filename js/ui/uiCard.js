@@ -6,7 +6,7 @@ export default function uiCard(item) {
   article.innerHTML = /* html */ `
     <h3>${item.title}</h3>
     <img src="${item.image}" alt="${item.title}" />
-    <p>${dateFormatted(item.createdAt)}</p>
+    <small>${dateFormatted(item.createdAt)}</small>
   `
   document.querySelector('#container').appendChild(article)
 }

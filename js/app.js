@@ -14,7 +14,7 @@ async function renderFeed() {
   uiLoading()
   const feed = await getFeed()
   if (!feed || feed.length === 0) uiNotFeed()
-  feed.forEach(uiCard)
+  else feed.forEach(uiCard)
   uiLoading(false)
 }
 
@@ -22,7 +22,7 @@ function handleCameraClick() {
   const cameraInputFile = document.createElement('input')
   const cameraIcon = document.querySelector('#camera-icon')
   cameraInputFile.type = 'file'
-  cameraInputFile.accept = '.png, .jpg, .webp, .jpeg'
+  cameraInputFile.accept = 'image/*'
   cameraInputFile.capture = 'environment'
   cameraInputFile.addEventListener('change', handleChangeInput)
   cameraIcon.addEventListener('click', () => cameraInputFile.click())
@@ -38,10 +38,11 @@ function handleChangeInput({ target }) {
 }
 
 function uiModal(imageBlob) {
+  modal.classList.add('fade-in')
   modal.innerHTML = /* html */ `
     <h2>Publica esta foto</h2>
-    <img src="${imageBlob}" alt="Vista previa" id="image-blob" />
-    <input type="text" placeholder="Título para la foto" id="input-title" />
+    <img src="${imageBlob}" alt="Vista previa" id="image-blob" class="fade-in" />
+    <input type="text" placeholder="Título para la foto" id="input-title" autofocus />
     <div>
       <button type="button" id="cancel-button">Cancelar</button>
       <button type="button" id="publish-button">Publicar</button>
@@ -56,9 +57,9 @@ function uiModal(imageBlob) {
   publishButton.addEventListener('click', () => publishImage({ image, input }, { cancelButton, publishButton }))
 }
 
-async function publishImage(publishData, buttonRef) {
+async function publishImage(publishData, buttonsRef) {
   const { image, input } = publishData
-  const { cancelButton, publishButton } = buttonRef
+  const { cancelButton, publishButton } = buttonsRef
   const imageBase64 = imageToBase64(image)
   const newPublish = {
     image: imageBase64,

@@ -12,7 +12,6 @@ export async function getFeed() {
 
 export async function addFeed(body) {
   try {
-    // await sleep(5000000000)
     const resp = await fetch(URL_API, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -23,5 +22,3 @@ export async function addFeed(body) {
     return null
   }
 }
-
-const sleep = (time) => new Promise((resolve) => setTimeout(resolve, time))
