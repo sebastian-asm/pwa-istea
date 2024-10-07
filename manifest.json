@@ -1,7 +1,7 @@
 {
   "short_name": "MInstagram",
   "name": "MInstagram - Publica tus fotos",
-  "start_url": "/",
+  "start_url": "/pwa-istea/index.html",
   "background_color": "#fff",
   "theme_color": "#5b51d8",
   "description": "Muestra tu feed de fotos publicadas.",
@@ -10,36 +10,36 @@
   "orientation": "portrait",
   "icons": [
     {
-      "src": "/assets/instagram-64.png",
+      "src": "./assets/instagram-64.png",
       "type": "image/png",
       "sizes": "64x64"
     },
     {
-      "src": "/assets/instagram-144.png",
+      "src": "./assets/instagram-144.png",
       "type": "image/png",
       "sizes": "144x144"
     },
     {
-      "src": "/assets/instagram-192.png",
+      "src": "./assets/instagram-192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "/assets/instagram-512.png",
+      "src": "./assets/instagram-512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
   ],
   "screenshots": [
     {
-      "src": "/assets/screenshot-375x772.jpeg",
+      "src": "./assets/screenshot-375x772.jpeg",
       "sizes": "375x772",
       "type": "image/jpeg",
       "form_factor": "narrow",
       "label": "MInstagram - Publica tus fotos"
     },
     {
-      "src": "/assets/screenshot-1788x860.jpeg",
+      "src": "./assets/screenshot-1788x860.jpeg",
       "sizes": "1788x860",
       "type": "image/jpeg",
       "form_factor": "wide",
