@@ -76,4 +76,7 @@ async function publishImage(publishData, buttonsRef) {
   modal.close()
 }
 
-document.addEventListener('DOMContentLoaded', app)
+// no es necesario usar DOMContentLoaded para ejecutar la función principal
+// ya que al usar module o defer está definido que ninguna función se ejecutará
+// hasta haber cargado todo el HTML
+app()
