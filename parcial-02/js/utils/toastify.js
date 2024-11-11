@@ -1,4 +1,4 @@
-export default function toast(message, type = 'success') {
+export default function toast(message, type = 'toast-success') {
   Toastify({
     text: message,
     className: type,

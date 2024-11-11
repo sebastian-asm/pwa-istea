@@ -1,12 +1,33 @@
-import { getTasks } from './utils/index.js'
+import { FINISHED, getTasks, PENDING } from './utils/index.js'
+import { loading, empty, error, card } from './ui/index.js'
 
-async function init() {
+const container = document.querySelector('#container')
+
+function init() {
+  renderTasks()
+}
+
+async function renderTasks() {
+  loading(true)
   const tasks = await getTasks()
-  if (tasks && tasks.length > 0) {
-    const pendingTasks = tasks.filter((task) => task.status === 'pending')
-    const finishTasks = tasks.filter((task) => task.status === 'finish')
-    console.log({ pendingTasks, finishTasks })
-  }
+  loading(false)
+  if (!tasks) return error()
+  if (tasks.length === 0) return empty()
+  filterTasksByStatus(tasks, PENDING)
+  filterTasksByStatus(tasks, FINISHED)
+}
+
+function filterTasksByStatus(tasks, status) {
+  const filterTasks = tasks.filter((task) => task.status === status)
+  const section = document.createElement('section')
+  const div = document.createElement('div')
+  const title = document.createElement('h2')
+  section.classList.add('fade-in')
+  div.classList.add('container-cards')
+  title.textContent = `${status === PENDING ? 'Pendientes' : 'Finalizadas'} (${filterTasks.length})`
+  filterTasks.forEach((task) => div.appendChild(card(task)))
+  section.append(title, div)
+  container.appendChild(section)
 }
 
 init()

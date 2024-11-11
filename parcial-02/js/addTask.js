@@ -1,4 +1,4 @@
-import { saveTask, toast } from './utils/index.js'
+import { saveTask, toast, PENDING, SUCCESS_MESSAGE, ERROR_MESSAGE } from './utils/index.js'
 
 const form = document.querySelector('form')
 const cancelButton = document.querySelector('#cancelButton')
@@ -14,19 +14,19 @@ function init() {
 async function addTask(event) {
   event.preventDefault()
   if (title.value.trim() === '' || description.value.trim() === '')
-    return toast('Complete todos los campos por favor', 'error')
+    return toast('Complete todos los campos por favor', 'toast-error')
 
   const newTask = {
     title: title.value,
     description: description.value,
     createdAt: new Date().getTime(),
     finishedAt: null,
-    status: 'pending'
+    status: PENDING
   }
   disabledForm(true)
   const taskDb = await saveTask(newTask)
-  if (!taskDb) return toast('Ocurrió un error, vuelva a intentar por favor', 'error')
-  toast('¡Tarea guardada exitosamente!')
+  if (!taskDb) return toast(ERROR_MESSAGE, 'toast-error')
+  toast(SUCCESS_MESSAGE)
   disabledForm(false)
   form.reset()
 }

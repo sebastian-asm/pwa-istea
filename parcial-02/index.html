@@ -9,7 +9,9 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" />
     <link rel="stylesheet" href="./css/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script type="module" src="./js/app.js"></script>
     <title>TaskMGR - Parcial 2</title>
   </head>
@@ -42,38 +44,6 @@
         </svg>
       </div>
     </header>
-    <main class="fade-in">
-      <section>
-        <h2 class="title">Pendientes (1)</h2>
-        <div class="container">
-          <article>
-            <div>
-              <h3>Titulo</h3>
-              <small>11/11/2024 - 19:00</small>
-            </div>
-            <p>👌</p>
-          </article>
-          <article>
-            <div>
-              <h3>Titulo</h3>
-              <p>11/11/2024 - 19:00</p>
-            </div>
-            <p>👌</p>
-          </article>
-        </div>
-      </section>
-      <section>
-        <h2 class="title">Finalizadas</h2>
-        <div class="container">
-          <article>
-            <div>
-              <h3>Titulo</h3>
-              <p>11/11/2024 - 19:00</p>
-            </div>
-            <p>👌</p>
-          </article>
-        </div>
-      </section>
-    </main>
+    <main class="fade-in" id="container"></main>
   </body>
 </html>
