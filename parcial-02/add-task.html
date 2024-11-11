@@ -9,9 +9,11 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" />
     <link rel="stylesheet" href="./css/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script type="module" src="./js/addTask.js"></script>
-    <title>TaskMGR - Parcial 2</title>
+    <title>TaskMGR - Crear nueva tarea</title>
   </head>
   <body>
     <header>
@@ -42,7 +44,7 @@
         </svg>
       </div>
     </header>
-    <main>
+    <main class="fade-in">
       <section>
         <h2 class="title">Agregar nueva tarea</h2>
         <form>
@@ -50,9 +52,9 @@
           <input type="text" id="title" />
           <label for="description">Descripción</label>
           <textarea name="" id="description" rows="6"></textarea>
-          <div class="buttons">
-            <button type="button" id="resetButton" class="secondary">Cancelar</button>
-            <button type="submit" id="addButton" class="primary">Crear</button>
+          <div class="buttons-container">
+            <button type="button" id="cancelButton" class="btn-secondary">Cancelar</button>
+            <button type="submit" id="saveButton" class="btn-primary">Guardar</button>
           </div>
         </form>
       </section>
