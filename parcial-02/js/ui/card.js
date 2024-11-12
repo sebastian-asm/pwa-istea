@@ -1,6 +1,6 @@
 import { dateFormatted, PENDING } from '../utils/index.js'
 
-export default function card(task) {
+export default function uiCard(task) {
   const iconPlay = /* html */ `
     <svg xmlns="http://www.w3.org/2000/svg" x-bind:width="size" x-bind:height="size" viewBox="0 0 24 24" fill="none" x-bind:stroke-width="stroke" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
       <path d="M7 4v16l13 -8z"></path>
@@ -31,7 +31,7 @@ export default function card(task) {
   article.classList.add(task.status)
   article.innerHTML = /* html */ `
     <div>
-      <h3>${title}</h3>
+      <h3 id="${task.id}">${title}</h3>
       ${dateTask}
     </div>
     ${pending ? iconPlay : iconCheck}

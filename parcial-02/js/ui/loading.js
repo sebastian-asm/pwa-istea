@@ -1,4 +1,4 @@
-export default function loading(active = true) {
+export default function uiLoading(active = true) {
   const div = document.createElement('div')
   div.classList.add('loading', 'fade-in')
   div.id = 'loading'

@@ -1,4 +1,4 @@
-export default function empty() {
+export default function uiEmpty() {
   const div = document.createElement('div')
   div.classList.add('empty', 'fade-in')
   div.innerHTML = /*html*/ `

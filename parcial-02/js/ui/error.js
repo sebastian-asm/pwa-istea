@@ -1,6 +1,6 @@
 import { ERROR_MESSAGE } from '../utils/index.js'
 
-export default function error() {
+export default function uiError() {
   const div = document.createElement('div')
   div.classList.add('error', 'fade-in')
   div.innerHTML = /*html*/ `
