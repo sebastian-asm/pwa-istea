@@ -1,10 +1,11 @@
-import { FINISHED, getTasks, PENDING } from './utils/index.js'
+import { FINISHED, getTasks, PENDING, navbarToggle } from './utils/index.js'
 import { loading, empty, error, card } from './ui/index.js'
 
 const container = document.querySelector('#container')
 
 function init() {
   renderTasks()
+  navbarToggle()
 }
 
 async function renderTasks() {
@@ -25,7 +26,7 @@ function filterTasksByStatus(tasks, status) {
   section.classList.add('fade-in')
   div.classList.add('container-cards')
   title.textContent = `${status === PENDING ? 'Pendientes' : 'Finalizadas'} (${filterTasks.length})`
-  filterTasks.forEach((task) => div.appendChild(card(task)))
+  for (const task of filterTasks) div.appendChild(card(task))
   section.append(title, div)
   container.appendChild(section)
 }

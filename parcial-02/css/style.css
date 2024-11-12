@@ -33,20 +33,81 @@ header {
   background-image: linear-gradient(to right, var(--color-secondary), var(--color-primary));
   padding: var(--size-lg);
 
-  .container {
+  .head-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     max-width: var(--max-width);
     margin: 0 auto;
 
-    .nav {
+    .navbar-desktop {
       display: none;
     }
 
-    svg {
+    .icon-open svg {
       stroke: var(--color-ligth);
       filter: drop-shadow(var(--text-shadow));
+      width: 40px;
+      height: auto;
+      cursor: pointer;
+    }
+
+    .icon-close {
+      cursor: pointer;
+      text-align: center;
+      margin: var(--size-xl);
+
+      svg {
+        width: 40px;
+        height: auto;
+        stroke: var(--color-primary);
+      }
+    }
+
+    .navbar-mobile {
+      position: fixed;
+      top: 0;
+      right: -320px;
+      background-color: var(--color-dark);
+      height: 100vh;
+      width: 320px;
+      border-left: 2px solid var(--color-secondary);
+      border-top-left-radius: var(--size-sm);
+      border-bottom-left-radius: var(--size-sm);
+      z-index: 1;
+      transition: var(--transition);
+
+      ul {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 0 var(--size-sm);
+
+        .active a {
+          color: var(--color-primary);
+          text-shadow: 3px 3px 2px var(--color-secondary);
+        }
+
+        li {
+          padding: var(--size-xl) 0;
+          border-bottom: 1px solid var(--color-secondary);
+          width: 100%;
+          text-align: center;
+
+          a {
+            font-size: 18px;
+            font-weight: bold;
+            color: var(--color-ligth);
+            text-shadow: 3px 3px 2px var(--color-secondary);
+
+            &:active {
+              color: var(--color-primary);
+            }
+          }
+        }
+      }
     }
 
     h1 a {
@@ -317,36 +378,41 @@ button {
 
 @media (min-width: 768px) {
   header {
-    .container {
-      .nav {
-        display: flex;
-        list-style: none;
+    .head-container {
+      .navbar-desktop {
+        display: block;
 
-        .active {
-          border-bottom: 1px solid var(--color-ligth);
-        }
+        ul {
+          display: flex;
+          list-style: none;
 
-        li {
-          margin: 0 var(--size-lg);
-          border-bottom: 1px solid transparent;
-          transition: var(--transition);
-
-          a {
-            text-shadow: var(--text-shadow);
-            color: var(--color-ligth);
+          .active {
+            border-bottom: 2px solid var(--color-ligth);
           }
 
-          &:hover {
-            border-bottom: 1px solid var(--color-ligth);
-          }
+          li {
+            margin: 0 var(--size-lg);
+            border-bottom: 1px solid transparent;
+            transition: var(--transition);
 
-          &:last-child {
-            margin: 0;
+            a {
+              text-shadow: var(--text-shadow);
+              color: var(--color-ligth);
+              font-weight: bold;
+            }
+
+            &:hover {
+              border-bottom: 1px solid var(--color-ligth);
+            }
+
+            &:last-child {
+              margin: 0;
+            }
           }
         }
       }
 
-      svg {
+      .icon-open {
         display: none;
       }
     }

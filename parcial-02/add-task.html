@@ -17,31 +17,53 @@
   </head>
   <body>
     <header>
-      <div class="container">
+      <div class="head-container">
         <h1><a href="./index.html">TaskMGR</a></h1>
-        <nav>
-          <ul class="nav">
-            <li class="active"><a href="./add.html">Crear nueva tarea</a></li>
+        <nav class="navbar-desktop">
+          <ul>
+            <li class="active"><a href="./add-task.html">Crear nueva tarea</a></li>
             <li><a href="./config.html">Configuración</a></li>
           </ul>
         </nav>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          x-bind:width="size"
-          x-bind:height="size"
-          viewBox="0 0 24 24"
-          fill="none"
-          x-bind:stroke-width="stroke"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          width="40"
-          height="40"
-          stroke-width="1.5"
-        >
-          <path d="M4 6l16 0"></path>
-          <path d="M4 12l16 0"></path>
-          <path d="M4 18l16 0"></path>
-        </svg>
+        <div class="icon-open" id="icon-open">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            x-bind:width="size"
+            x-bind:height="size"
+            viewBox="0 0 24 24"
+            fill="none"
+            x-bind:stroke-width="stroke"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.5"
+          >
+            <path d="M4 6l16 0"></path>
+            <path d="M4 12l16 0"></path>
+            <path d="M4 18l16 0"></path>
+          </svg>
+        </div>
+        <nav class="navbar-mobile" id="navbar-mobile">
+          <div class="icon-close" id="icon-close">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              x-bind:width="size"
+              x-bind:height="size"
+              viewBox="0 0 24 24"
+              fill="none"
+              x-bind:stroke-width="stroke"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+            >
+              <path d="M18 6l-12 12"></path>
+              <path d="M6 6l12 12"></path>
+            </svg>
+          </div>
+          <ul>
+            <li class="active"><a href="./add-task.html">Crear nueva tarea</a></li>
+            <li><a href="./config.html">Configuración</a></li>
+          </ul>
+        </nav>
       </div>
     </header>
     <main class="fade-in">

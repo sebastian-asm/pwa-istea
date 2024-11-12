@@ -2,7 +2,7 @@ const URL = 'https://66fffdc34da5bd237552cad3.mockapi.io/taskmgr'
 
 export async function getTasks() {
   try {
-    const response = await fetch(URL)
+    const response = await fetch(`${URL}?sortBy=createdAt&order=desc`)
     const tasks = await response.json()
     return tasks
   } catch {

@@ -1,4 +1,4 @@
-import { saveTask, toast, PENDING, SUCCESS_MESSAGE, ERROR_MESSAGE } from './utils/index.js'
+import { saveTask, toast, PENDING, SUCCESS_MESSAGE, ERROR_MESSAGE, navbarToggle } from './utils/index.js'
 
 const form = document.querySelector('form')
 const cancelButton = document.querySelector('#cancelButton')
@@ -9,6 +9,7 @@ const description = document.querySelector('#description')
 function init() {
   form.addEventListener('submit', addTask)
   cancelButton.addEventListener('click', () => (location.href = 'index.html'))
+  navbarToggle()
 }
 
 async function addTask(event) {
