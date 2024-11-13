@@ -1,9 +1,10 @@
-import { useFetch, PENDING, SUCCESS_MESSAGE, ERROR_MESSAGE } from './utils/index.js'
-import { uiToast, uiNavbar } from './ui/index.js'
+import { useFetch, PENDING, SUCCESS_MESSAGE, ERROR_MESSAGE, ERROR_FORM_MESSAGE } from './utils/index.js'
+import { uiNavbar, uiAlert } from './ui/index.js'
 
 const form = document.querySelector('form')
 const cancelButton = document.querySelector('#cancelButton')
 const saveButton = document.querySelector('#saveButton')
+const container = document.querySelector('#container')
 
 function init() {
   form.addEventListener('submit', addTask)
@@ -16,7 +17,7 @@ async function addTask(event) {
   const formData = new FormData(event.target)
   const formObject = Object.fromEntries(formData.entries())
   if (formObject.title.trim() === '' || formObject.description.trim() === '')
-    return uiToast('Complete todos los campos por favor', 'toast-error')
+    return uiAlert(ERROR_FORM_MESSAGE, 'error', container)
 
   const newTask = {
     title: formObject.title,
@@ -27,8 +28,12 @@ async function addTask(event) {
   }
   disabledForm(true)
   const taskDb = await useFetch.saveTask(newTask)
-  if (!taskDb) return uiToast(ERROR_MESSAGE, 'toast-error')
-  uiToast(SUCCESS_MESSAGE)
+  if (!taskDb) {
+    uiAlert(ERROR_MESSAGE, 'error', container)
+    disabledForm(false)
+    return
+  }
+  uiAlert(SUCCESS_MESSAGE, 'success', container)
   disabledForm(false)
   form.reset()
 }

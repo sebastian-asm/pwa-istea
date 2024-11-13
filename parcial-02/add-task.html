@@ -9,9 +9,7 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" />
     <link rel="stylesheet" href="./css/style.css" />
-    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script type="module" src="./js/addTask.js"></script>
     <title>TaskMGR - Crear nueva tarea</title>
   </head>
@@ -35,7 +33,7 @@
             x-bind:stroke-width="stroke"
             stroke-linecap="round"
             stroke-linejoin="round"
-            stroke-width="1.5"
+            stroke-width="2"
           >
             <path d="M4 6l16 0"></path>
             <path d="M4 12l16 0"></path>
@@ -66,7 +64,7 @@
         </nav>
       </div>
     </header>
-    <main class="fade-in">
+    <main class="fade-in" id="container">
       <section>
         <h2 class="title">Agregar nueva tarea</h2>
         <form>

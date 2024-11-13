@@ -3,18 +3,17 @@ import { FINISHED, PENDING } from './index.js'
 const URL = 'https://66fffdc34da5bd237552cad3.mockapi.io/taskmgr'
 
 export async function getTasks() {
+  const getData = (source) =>
+    fetch(source).then((response) => {
+      if (response.status === 404) return []
+      if (response.status === 500) return null
+      return response.json()
+    })
+
   try {
     const [pendingTasks, finishedTasks] = await Promise.all([
-      fetch(`${URL}?status=${PENDING}&sortBy=createdAt&order=desc`).then((response) => {
-        if (response.status === 404) return []
-        if (response.status === 500) return null
-        return response.json()
-      }),
-      fetch(`${URL}?status=${FINISHED}&sortBy=finishedAt&order=desc`).then((response) => {
-        if (response.status === 404) return []
-        if (response.status === 500) return null
-        return response.json()
-      })
+      getData(`${URL}?status=${PENDING}&sortBy=createdAt&order=desc`),
+      getData(`${URL}?status=${FINISHED}&sortBy=finishedAt&order=desc`)
     ])
     return { pendingTasks, finishedTasks }
   } catch {

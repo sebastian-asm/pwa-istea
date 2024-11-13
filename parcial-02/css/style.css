@@ -31,7 +31,7 @@ a {
 
 header {
   background-image: linear-gradient(to right, var(--color-secondary), var(--color-primary));
-  padding: var(--size-lg);
+  padding: var(--size-lg) var(--size-sm);
 
   .head-container {
     display: flex;
@@ -120,9 +120,10 @@ header {
 main {
   max-width: var(--max-width);
   margin: 0 auto;
+  padding: var(--size-sm);
 
   section {
-    margin: var(--size-xl) var(--size-sm);
+    margin: var(--size-lg) 0;
 
     h2 {
       color: var(--color-ligth);
@@ -313,9 +314,8 @@ button {
 }
 
 .modal {
-  border: 2px solid var(--color-primary);
   outline: none;
-  position: fixed;
+  border: 2px solid var(--color-primary);
   width: 768px;
   margin: auto;
   padding: var(--size-lg);
@@ -324,7 +324,6 @@ button {
   transition: var(--transition);
 
   &::backdrop {
-    /* background-color: #00000090; */
     backdrop-filter: blur(8px);
   }
 
@@ -339,6 +338,35 @@ button {
     color: var(--color-ligth);
     margin-bottom: var(--size-xl);
   }
+}
+
+.alert {
+  color: var(--color-ligth);
+  border-radius: var(--size-xs);
+  padding: var(--size-sm);
+  margin: var(--size-lg) 0;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+
+  svg {
+    stroke: var(--color-ligth);
+    width: 28px;
+    height: auto;
+    flex-shrink: 0;
+  }
+
+  p {
+    margin-left: var(--size-sm);
+  }
+}
+
+.alert-success {
+  background-color: #16a34a;
+}
+
+.alert-error {
+  background-color: #dc2626;
 }
 
 .toast-success,
@@ -482,6 +510,8 @@ button {
   }
 
   main {
+    padding: 0;
+
     section {
       margin: var(--size-xl) 0;
 
@@ -489,5 +519,9 @@ button {
         grid-template-columns: repeat(2, 1fr);
       }
     }
+  }
+
+  .alert {
+    margin: var(--size-xl) 0;
   }
 }

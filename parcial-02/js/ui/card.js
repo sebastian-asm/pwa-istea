@@ -2,13 +2,13 @@ import { dateFormatted, PENDING } from '../utils/index.js'
 
 export default function uiCard(task) {
   const iconPlay = /* html */ `
-    <svg xmlns="http://www.w3.org/2000/svg" x-bind:width="size" x-bind:height="size" viewBox="0 0 24 24" fill="none" x-bind:stroke-width="stroke" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
+    <svg xmlns="http://www.w3.org/2000/svg" x-bind:width="size" x-bind:height="size" viewBox="0 0 24 24" fill="none" x-bind:stroke-width="stroke" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
       <path d="M7 4v16l13 -8z"></path>
     </svg>
   `
 
   const iconCheck = /* html */ `
-    <svg xmlns="http://www.w3.org/2000/svg" x-bind:width="size" x-bind:height="size" viewBox="0 0 24 24" fill="none" x-bind:stroke-width="stroke" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
+    <svg xmlns="http://www.w3.org/2000/svg" x-bind:width="size" x-bind:height="size" viewBox="0 0 24 24" fill="none" x-bind:stroke-width="stroke" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
       <path d="M8.56 3.69a9 9 0 0 0 -2.92 1.95"></path>
       <path d="M3.69 8.56a9 9 0 0 0 -.69 3.44"></path>
       <path d="M3.69 15.44a9 9 0 0 0 1.95 2.92"></path>

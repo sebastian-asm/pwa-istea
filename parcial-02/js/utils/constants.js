@@ -1,4 +1,5 @@
 export const PENDING = 'pending'
 export const FINISHED = 'finished'
 export const ERROR_MESSAGE = 'Ocurrió un error, vuelva a intentar por favor'
-export const SUCCESS_MESSAGE = '¡Tarea guardada exitosamente!'
+export const ERROR_FORM_MESSAGE = 'Todos los campos son necesarios'
+export const SUCCESS_MESSAGE = '¡Acción realizada exitosamente!'
