@@ -1,4 +1,5 @@
-import { useFetch, toast, PENDING, SUCCESS_MESSAGE, ERROR_MESSAGE, navbarToggle } from './utils/index.js'
+import { useFetch, PENDING, SUCCESS_MESSAGE, ERROR_MESSAGE } from './utils/index.js'
+import { uiToast, uiNavbar } from './ui/index.js'
 
 const form = document.querySelector('form')
 const cancelButton = document.querySelector('#cancelButton')
@@ -7,16 +8,15 @@ const saveButton = document.querySelector('#saveButton')
 function init() {
   form.addEventListener('submit', addTask)
   cancelButton.addEventListener('click', () => (location.href = 'index.html'))
-  navbarToggle()
+  uiNavbar()
 }
 
 async function addTask(event) {
   event.preventDefault()
   const formData = new FormData(event.target)
   const formObject = Object.fromEntries(formData.entries())
-  console.log(formObject)
   if (formObject.title.trim() === '' || formObject.description.trim() === '')
-    return toast('Complete todos los campos por favor', 'toast-error')
+    return uiToast('Complete todos los campos por favor', 'toast-error')
 
   const newTask = {
     title: formObject.title,
@@ -27,8 +27,8 @@ async function addTask(event) {
   }
   disabledForm(true)
   const taskDb = await useFetch.saveTask(newTask)
-  if (!taskDb) return toast(ERROR_MESSAGE, 'toast-error')
-  toast(SUCCESS_MESSAGE)
+  if (!taskDb) return uiToast(ERROR_MESSAGE, 'toast-error')
+  uiToast(SUCCESS_MESSAGE)
   disabledForm(false)
   form.reset()
 }

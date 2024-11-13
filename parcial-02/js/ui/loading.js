@@ -1,6 +1,6 @@
-export default function uiLoading(active = true) {
+export default function uiLoading(active, element) {
   const div = document.createElement('div')
-  div.classList.add('loading', 'fade-in')
+  div.classList.add(element.id === 'container' ? 'loading' : 'loading-modal', 'fade-in')
   div.id = 'loading'
   if (active) {
     div.innerHTML = /* html */ `
@@ -15,9 +15,9 @@ export default function uiLoading(active = true) {
         <line x1="6" y1="12" x2="3" y2="12" />
         <line x1="7.75" y1="7.75" x2="5.6" y2="5.6" />
       </svg>
-      <p>¡Cargando tareas!</p>
+      <p>¡Cargando!</p>
     `
-    document.querySelector('#container').appendChild(div)
+    element.appendChild(div)
   } else {
     document.querySelector('#loading').remove()
   }

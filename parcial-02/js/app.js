@@ -1,19 +1,19 @@
-import { FINISHED, PENDING, navbarToggle, toast, useFetch } from './utils/index.js'
-import { uiLoading, uiEmpty, uiError, uiCard, uiModal } from './ui/index.js'
+import { FINISHED, PENDING, useFetch } from './utils/index.js'
+import { uiLoading, uiEmpty, uiError, uiCard, uiModal, uiNavbar, uiToast } from './ui/index.js'
 
 const container = document.querySelector('#container')
 const modal = document.querySelector('#modal')
 
 function init() {
   renderTasks()
-  navbarToggle()
+  uiNavbar()
 }
 
 async function renderTasks() {
   container.innerHTML = ''
-  uiLoading(true)
+  uiLoading(true, container)
   const { pendingTasks, finishedTasks } = await useFetch.getTasks()
-  uiLoading(false)
+  uiLoading(false, container)
   if (!pendingTasks && !finishedTasks) return uiError()
   if (pendingTasks.length === 0 && finishedTasks.length === 0) return uiEmpty()
   renderTasksByStatus(pendingTasks, PENDING)
@@ -27,9 +27,12 @@ function selectTask() {
 }
 
 async function modalTask(event) {
-  modal.showModal()
+  modal.innerHTML = ''
   const { id } = event.target
+  modal.showModal()
+  uiLoading(true, modal)
   const task = await useFetch.getTask(id)
+  uiLoading(false, modal)
   if (!task) {
     // toast de error
     modal.close()
@@ -47,7 +50,7 @@ async function updateTask(event, id) {
   const formData = new FormData(event.target)
   const formObject = Object.fromEntries(formData.entries())
   if (formObject.title.trim() === '' || formObject.description.trim() === '')
-    toast('Complete todos los campos por favor', 'toast-error')
+    return uiToast('Complete todos los campos por favor', 'toast-error')
 
   const updateTask = {
     title: formObject.title,

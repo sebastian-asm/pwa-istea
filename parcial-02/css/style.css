@@ -74,12 +74,8 @@ header {
       border-left: 2px solid var(--color-secondary);
       border-top-left-radius: var(--size-sm);
       border-bottom-left-radius: var(--size-sm);
-      z-index: 1;
       transition: var(--transition);
-
-      /* &&::backdrop {
-          backdrop-filter: blur(8px);
-        } */
+      /* backdrop-filter: blur(8px); */
 
       ul {
         list-style: none;
@@ -308,6 +304,7 @@ button {
     height: 22px;
     appearance: none;
     border-radius: 50%;
+    transition: var(--transition);
 
     &:checked {
       background-color: var(--color-primary);
@@ -324,6 +321,7 @@ button {
   padding: var(--size-lg);
   border-radius: var(--size-sm);
   background-color: var(--color-dark);
+  transition: var(--transition);
 
   &::backdrop {
     /* background-color: #00000090; */
@@ -358,16 +356,18 @@ button {
 }
 
 .loading,
+.loading-modal,
 .empty,
 .error {
-  height: calc(100vh - 100px);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: calc(100vh - 100px);
 }
 
-.loading {
+.loading,
+.loading-modal {
   svg {
     stroke: var(--color-primary);
     width: 100px;
@@ -379,6 +379,10 @@ button {
     margin: var(--size-sm);
     color: var(--color-ligth);
   }
+}
+
+.loading-modal {
+  height: auto;
 }
 
 @keyframes animateLoading {
