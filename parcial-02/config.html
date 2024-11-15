@@ -10,8 +10,8 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./css/style.css" />
-    <script type="module" src="./js/app.js"></script>
-    <title>TaskMGR - Inicio</title>
+    <script type="module" src="./js/config.js"></script>
+    <title>TaskMGR - Configuración</title>
   </head>
   <body>
     <header>
@@ -19,9 +19,9 @@
         <h1><a href="./index.html">TaskMGR</a></h1>
         <nav class="navbar-desktop">
           <ul>
-            <li class="active"><a href="./index.html">Inicio</a></li>
+            <li><a href="./index.html">Inicio</a></li>
             <li><a href="./add-task.html">Crear nueva tarea</a></li>
-            <li><a href="./config.html">Configuración</a></li>
+            <li class="active"><a href="./config.html">Configuración</a></li>
           </ul>
         </nav>
         <div class="icon-open" id="icon-open">
@@ -59,14 +59,40 @@
             </svg>
           </div>
           <ul>
-            <li class="active"><a href="./index.html">Inicio</a></li>
+            <li><a href="./index.html">Inicio</a></li>
             <li><a href="./add-task.html">Crear nueva tarea</a></li>
-            <li><a href="./config.html">Configuración</a></li>
+            <li class="active"><a href="./config.html">Configuración</a></li>
           </ul>
         </nav>
       </div>
     </header>
-    <main class="fade-in" id="container"></main>
-    <dialog id="modal" class="modal"></dialog>
+    <main class="fade-in" id="container">
+      <section>
+        <h2 class="title">Configuración de audio</h2>
+        <form>
+          <label for="lang-select" id="lang"></label>
+          <select id="lang-select" name="lang">
+            <option value="es-MX">Español México</option>
+            <option value="es-ES">Español España</option>
+            <option value="es-US">Español USA</option>
+            <option value="en-BR">Inglés británico</option>
+            <option value="en-US">Inglés norteamericano</option>
+            <option value="en-CA">Inglés canadiense</option>
+            <option value="pt-BR">Portugués de Brasil</option>
+          </select>
+          <label for="rate-select" id="rate"></label>
+          <input type="range" name="rate" id="rate-select" min="0" max="2" step="0.25" value="1" />
+          <div class="audio-range">
+            <p>0</p>
+            <p>1</p>
+            <p>2</p>
+          </div>
+          <div class="buttons-container">
+            <button type="button" id="cancel-button" class="btn-secondary">Volver</button>
+            <button type="button" id="save-button" class="btn-primary">Guardar</button>
+          </div>
+        </form>
+      </section>
+    </main>
   </body>
 </html>

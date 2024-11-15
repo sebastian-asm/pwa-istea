@@ -2,8 +2,8 @@ import { useFetch, PENDING, SUCCESS_MESSAGE, ERROR_MESSAGE, ERROR_FORM_MESSAGE }
 import { uiNavbar, uiAlert } from './ui/index.js'
 
 const form = document.querySelector('form')
-const cancelButton = document.querySelector('#cancelButton')
-const saveButton = document.querySelector('#saveButton')
+const cancelButton = document.querySelector('#cancel-button')
+const saveButton = document.querySelector('#save-button')
 const container = document.querySelector('#container')
 
 function init() {

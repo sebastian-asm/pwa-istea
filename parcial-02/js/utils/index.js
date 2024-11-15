@@ -1,3 +1,5 @@
 export { default as dateFormatted } from './dateFormatted.js'
+export { default as synthesis } from './synthesis.js'
+export * as storage from './localStorage.js'
 export * as useFetch from './useFetch.js'
 export * from './constants.js'

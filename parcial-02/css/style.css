@@ -75,7 +75,7 @@ header {
       border-top-left-radius: var(--size-sm);
       border-bottom-left-radius: var(--size-sm);
       transition: var(--transition);
-      /* backdrop-filter: blur(8px); */
+      z-index: 1;
 
       ul {
         list-style: none;
@@ -169,7 +169,7 @@ main {
           flex-shrink: 0;
 
           &:hover {
-            stroke-width: 3;
+            transform: scale(1.4);
           }
         }
 
@@ -235,6 +235,31 @@ select {
   &:disabled {
     color: var(--color-disabled);
   }
+}
+
+input[type='range'] {
+  width: 100%;
+  margin-top: var(--size-sm);
+  margin-bottom: var(--size-lg);
+  appearance: none;
+  background: var(--color-secondary);
+  cursor: pointer;
+  height: var(--size-xs);
+  border-radius: var(--size-xs);
+  display: block;
+
+  &::-webkit-slider-thumb {
+    appearance: none;
+    width: var(--size-lg);
+    height: var(--size-lg);
+    border-radius: 50%;
+    background-color: var(--color-primary);
+    cursor: pointer;
+  }
+}
+
+option {
+  background-color: var(--color-dark);
 }
 
 textarea {
@@ -311,6 +336,13 @@ button {
       background-color: var(--color-primary);
     }
   }
+}
+
+.audio-range {
+  color: var(--color-ligth);
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: var(--size-xl);
 }
 
 .modal {
@@ -482,7 +514,7 @@ button {
           }
 
           li {
-            margin: 0 var(--size-lg);
+            margin: 0 var(--size-sm);
             border-bottom: 2px solid transparent;
             transition: var(--transition);
 
@@ -497,7 +529,7 @@ button {
             }
 
             &:last-child {
-              margin: 0;
+              margin-right: 0;
             }
           }
         }

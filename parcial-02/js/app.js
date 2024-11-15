@@ -1,4 +1,12 @@
-import { ERROR_FORM_MESSAGE, ERROR_MESSAGE, FINISHED, PENDING, SUCCESS_MESSAGE, useFetch } from './utils/index.js'
+import {
+  ERROR_FORM_MESSAGE,
+  ERROR_MESSAGE,
+  FINISHED,
+  PENDING,
+  SUCCESS_MESSAGE,
+  synthesis,
+  useFetch
+} from './utils/index.js'
 import { uiLoading, uiEmpty, uiError, uiCard, uiModal, uiNavbar, uiAlert } from './ui/index.js'
 
 const container = document.querySelector('#container')
@@ -19,6 +27,14 @@ async function renderTasks() {
   renderTasksByStatus(pendingTasks, PENDING)
   renderTasksByStatus(finishedTasks, FINISHED)
   selectTask()
+  const articles = document.querySelectorAll(`article.${PENDING}`)
+  for (const article of articles) speakText(article)
+}
+
+function speakText(article) {
+  const title = article.querySelector('h3').textContent
+  const icon = article.querySelector('#icon')
+  icon.addEventListener('click', () => synthesis(title, icon))
 }
 
 function selectTask() {
@@ -60,10 +76,7 @@ async function updateTask(event, id) {
     finishedAt: formObject.status ? new Date().getTime() : null
   }
   const task = await useFetch.updateTask(id, updateTask)
-  if (!task) {
-    uiAlert(ERROR_MESSAGE, 'error', modal)
-    return
-  }
+  if (!task) return uiAlert(ERROR_MESSAGE, 'error', modal)
   modal.close()
   await renderTasks()
   uiAlert(SUCCESS_MESSAGE, 'success', container)
