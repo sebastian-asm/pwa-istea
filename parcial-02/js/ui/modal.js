@@ -19,7 +19,7 @@ export default function uiModal(task) {
       </p>
       ${dateTask}
       <div class="buttons-container">
-        <button type="button" id="closeModal" class="btn-secondary">Cerrar</button>
+        <button type="button" id="close-modal" class="btn-secondary">Cerrar</button>
         <button type="submit" class="btn-primary">Actualizar</button>
       </div>
     </form>

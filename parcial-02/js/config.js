@@ -27,7 +27,7 @@ function renderConfigParams(langValue, rateValue) {
   const langLabel = document.querySelector('#lang')
   const rateLabel = document.querySelector('#rate')
   langLabel.innerHTML = `Idioma: <strong>${langValue}</strong>`
-  rateLabel.innerHTML = `Velocidad: <strong>${rateValue}</strong>`
+  rateLabel.innerHTML = `Velocidad: <strong>${rateValue}x</strong>`
 }
 
 function saveConfigParams() {

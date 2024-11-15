@@ -57,7 +57,7 @@ async function modalTask(event) {
   }
   modal.innerHTML = uiModal(task)
   const form = document.querySelector('form')
-  const closeModal = document.querySelector('#closeModal')
+  const closeModal = document.querySelector('#close-modal')
   form.addEventListener('submit', (event) => updateTask(event, id))
   closeModal.addEventListener('click', () => modal.close())
 }
