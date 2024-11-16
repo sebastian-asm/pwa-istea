@@ -1,7 +1,7 @@
 {
   "short_name": "TaskMGR",
   "name": "TaskMGR - Administra tus tareas",
-  "start_url": "/pwa-istea/parcial-02/index.html",
+  "start_url": "/",
   "background_color": "#fff",
   "theme_color": "#14101d",
   "description": "Administra todas tus tareas.",
