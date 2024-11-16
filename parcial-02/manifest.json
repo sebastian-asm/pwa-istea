@@ -1,0 +1,49 @@
+{
+  "short_name": "TaskMGR",
+  "name": "TaskMGR - Administra tus tareas",
+  "start_url": "/pwa-istea/parcial-02/index.html",
+  "background_color": "#fff",
+  "theme_color": "#14101d",
+  "description": "Administra todas tus tareas.",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "./assets/checklist-64.png",
+      "type": "image/png",
+      "sizes": "64x64"
+    },
+    {
+      "src": "./assets/checklist-128.png",
+      "type": "image/png",
+      "sizes": "128x128"
+    },
+    {
+      "src": "./assets/checklist-256.png",
+      "type": "image/png",
+      "sizes": "256x256"
+    },
+    {
+      "src": "./assets/checklist-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "./assets/screenshot-375x674.jpeg",
+      "sizes": "375x674",
+      "type": "image/jpeg",
+      "form_factor": "narrow",
+      "label": "TaskMGR - Administra tus tareas"
+    },
+    {
+      "src": "./assets/screenshot-2616x1351.jpeg",
+      "sizes": "2616x1351",
+      "type": "image/jpeg",
+      "form_factor": "wide",
+      "label": "TaskMGR - Administra tus tareas"
+    }
+  ]
+}
